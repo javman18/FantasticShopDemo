@@ -13,7 +13,8 @@ public class TopDownCharacterController : MonoBehaviour
 
     [SerializeField]
     private OutfitController outfitController;
-
+    [SerializeField]
+    private OutfitController headwearController;
     [SerializeField]
     private string currentState;
 
@@ -28,6 +29,7 @@ public class TopDownCharacterController : MonoBehaviour
         playerAnimator.SetFloat("Speed", input.sqrMagnitude);
         SetState();
         outfitController.SetOutfit(currentState);
+        headwearController.SetOutfit(currentState);
         //outfitAnimator.SetFloat("Horizontal", input.x);
         //outfitAnimator.SetFloat("Vertical", input.y);
         //outfitAnimator.SetFloat("Speed", input.sqrMagnitude);

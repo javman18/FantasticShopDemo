@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b89888806fdd9428e6225bf6538f53, type: 3}
+  m_Name: BlueHat
+  m_EditorClassIdentifier: 
+  idleSprites:
+  - {fileID: 177126403, guid: 015379b12484b2f48b05e40ae8791c2c, type: 3}
+  walkUpSprites:
+  - {fileID: 21300000, guid: 704276c457d253a49944922445663898, type: 2}
+  - {fileID: 21300000, guid: 55623a778d1fba345a5ed18ec31808f3, type: 2}
+  - {fileID: 21300000, guid: 9f3a0216a835ffb4fb21dc6fd5528bde, type: 2}
+  - {fileID: 21300000, guid: 6b664ba0154ff35438edb14f3bce74b8, type: 2}
+  - {fileID: 21300000, guid: 6c10ba156843ec54aaf8ab417feeed1b, type: 2}
+  - {fileID: 21300000, guid: 645b8676a3b5bc4428cbb92ee73f1163, type: 2}
+  walkDownSprites:
+  - {fileID: 21300000, guid: 2ee05b549ad28b543a1b5c103cecb433, type: 2}
+  - {fileID: 21300000, guid: 7a91d055e62f94b418d2aaed34acb945, type: 2}
+  - {fileID: 21300000, guid: 7bef8419edf0f1341b1f4aa26acbfce7, type: 2}
+  - {fileID: 21300000, guid: 39c84685c492d5b46977a36a5a7aec90, type: 2}
+  - {fileID: 21300000, guid: e02bc5b152155fb4c88aa07db9c4777d, type: 2}
+  - {fileID: 21300000, guid: 342329ca2c8ba4a498d0d64f41b17d4d, type: 2}
+  walkLeftSprites:
+  - {fileID: 21300000, guid: da98bac8b525c7849acbc227871ab595, type: 2}
+  - {fileID: 21300000, guid: bf03c104e5a849a4fa7772ae5899e55c, type: 2}
+  - {fileID: 21300000, guid: 40e31e6e66ae9d946a81aa30489a02c6, type: 2}
+  - {fileID: 21300000, guid: e8ba6eb6c3afa644a941c2f42bdef481, type: 2}
+  - {fileID: 21300000, guid: 6f0262f2e5268824f997dca270c6f669, type: 2}
+  - {fileID: 21300000, guid: 8bdf6749e5d3ebf4284271fc4a14e85a, type: 2}
+  walkRightSprites:
+  - {fileID: 21300000, guid: 1e8fc7fda3965d74ea1ab89f25b79ece, type: 2}
+  - {fileID: 21300000, guid: a88ff12dccfbd074cb19298cc65bdd4e, type: 2}
+  - {fileID: 21300000, guid: edf0c6d10ae6d4a45a89ecdac986d52b, type: 2}
+  - {fileID: 21300000, guid: 0cf09223c0b49914f9793f7d3c3d90a3, type: 2}
+  - {fileID: 21300000, guid: 7408bc3570b01884d87b6cf945cf06de, type: 2}
+  - {fileID: 21300000, guid: 8213045177ed0114a83fbeb49dd8fc49, type: 2}
+  wearableType: Hat

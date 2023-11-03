@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OutfitController : MonoBehaviour
 {
-    public OutfitData currentOutfit;
+    public WearableData wearable;
 
     private int currentFrame;
     private float timer;
@@ -18,30 +18,42 @@ public class OutfitController : MonoBehaviour
         if (timer >= frameRate)
         {
             timer -= frameRate;
-            currentFrame = (currentFrame + 1) % StateSprites(animationState).Length;
-            spriteRenderer.sprite = StateSprites(animationState)[currentFrame];
+            if (wearable != null)
+            {
+                currentFrame = (currentFrame + 1) % StateSprites(animationState).Length;
+                spriteRenderer.sprite = StateSprites(animationState)[currentFrame];
+            }
+            
         }
     }
 
     Sprite[] StateSprites(string animationState)
     {
-        if (currentOutfit != null)
+        ISpriteProvider tmpWearable = Get<ISpriteProvider>();
+        if (tmpWearable != null)
         {
             switch (animationState)
             {
                 case "Idle":
-                    return currentOutfit.idleSprites;
+                    return tmpWearable.GetIdleSprites();
                 case "WalkUp":
-                    return currentOutfit.walkUpSprites;
+                    return tmpWearable.GetWalkUpSprites();
                 case "WalkDown":
-                    return currentOutfit.walkDownSprites;
+                    return tmpWearable.GetWalkDownSprites();
                 case "WalkLeft":
-                    return currentOutfit.walkLeftSprites;
+                    return tmpWearable.GetWalkLeftSprites();
                 case "WalkRight":
-                    return currentOutfit.walkRightSprites;
+                    return tmpWearable.GetWalkRightSprites();
             }
         }
         return null;
+    }
+
+    public T Get<T>()
+    {
+        if (wearable is T interfaceType)
+            return interfaceType;
+        return default(T);
     }
 }
 

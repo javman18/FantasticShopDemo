@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b89888806fdd9428e6225bf6538f53, type: 3}
   m_Name: OrangeOutfit
   m_EditorClassIdentifier: 
-  idleSprites: []
+  idleSprites:
+  - {fileID: 71368312, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
   walkUpSprites:
   - {fileID: 198501212, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
   - {fileID: 568682153, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
@@ -41,3 +42,4 @@ MonoBehaviour:
   - {fileID: -1564793237, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
   - {fileID: -1771288641, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
   - {fileID: 1168368398, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  wearableType: Outfit
