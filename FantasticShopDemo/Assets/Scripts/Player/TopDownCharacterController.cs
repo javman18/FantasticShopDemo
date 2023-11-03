@@ -9,16 +9,52 @@ public class TopDownCharacterController : MonoBehaviour
     [SerializeField]
     private KeyboardInput inputSource;
 
-    public Animator animator;
+    public Animator playerAnimator;
 
+    [SerializeField]
+    private OutfitController outfitController;
+
+    [SerializeField]
+    private string currentState;
+
+    Vector2 input;
     private void Update()
     {
-        Vector2 input = inputSource.GetInput();
+        input = inputSource.GetInput();
         movement.Move(input);
 
-        animator.SetFloat("Horizontal", input.x);
-        animator.SetFloat("Vertical", input.y);
+        playerAnimator.SetFloat("Horizontal", input.x);
+        playerAnimator.SetFloat("Vertical", input.y);
+        playerAnimator.SetFloat("Speed", input.sqrMagnitude);
+        SetState();
+        outfitController.SetOutfit(currentState);
+        //outfitAnimator.SetFloat("Horizontal", input.x);
+        //outfitAnimator.SetFloat("Vertical", input.y);
+        //outfitAnimator.SetFloat("Speed", input.sqrMagnitude);
+    }
 
-        animator.SetFloat("Speed", input.sqrMagnitude);
+    private void SetState()
+    {
+        if (input == Vector2.zero)
+        {
+            currentState = "Idle";
+        }
+        if (input.x > 0)
+        {
+            currentState = "WalkRight";
+        }
+        if (input.x < 0)
+        {
+            currentState = "WalkLeft";
+        }
+        if (input.y > 0)
+        {
+            currentState = "WalkUp";
+        }
+        if (input.y < 0)
+        {
+            currentState = "WalkDown";
+        }
+       
     }
 }

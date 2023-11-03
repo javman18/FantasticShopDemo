@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b89888806fdd9428e6225bf6538f53, type: 3}
+  m_Name: OrangeOutfit
+  m_EditorClassIdentifier: 
+  idleSprites: []
+  walkUpSprites:
+  - {fileID: 198501212, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: 568682153, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: 848260126, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: -1704180198, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: -1396399565, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: -2093097245, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  walkDownSprites:
+  - {fileID: 1608950224, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: -1474182306, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: -754168874, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: -1975196401, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: 110667125, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: -111317894, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  walkLeftSprites:
+  - {fileID: -821963462, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: 135683053, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: 1637304879, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: -1761134275, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: -2140365814, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: 1953362004, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  walkRightSprites:
+  - {fileID: -2136238038, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: 1768488997, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: 204800071, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: -1564793237, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: -1771288641, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
+  - {fileID: 1168368398, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}

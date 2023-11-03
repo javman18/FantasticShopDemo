@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b89888806fdd9428e6225bf6538f53, type: 3}
+  m_Name: BlueOutfit
+  m_EditorClassIdentifier: 
+  idleSprites:
+  - {fileID: -1262996692, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  walkUpSprites:
+  - {fileID: 1834633002, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: -974586384, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: -1156688626, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: -313774512, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: 607913328, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: 1771706660, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  walkDownSprites:
+  - {fileID: 706351868, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: 189532625, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: -1199150952, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: 1387789594, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: -1025056383, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: -1514876857, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  walkLeftSprites:
+  - {fileID: -1094016226, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: 2037867096, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: 1382244808, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: 1305277325, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: -1887264053, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: 274700655, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  walkRightSprites:
+  - {fileID: 1027261842, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: 2128075358, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: 1962645996, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: 1359339526, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: 1988251345, guid: 7e60ff2125979754e966c762521ba953, type: 3}
+  - {fileID: 114698711, guid: 7e60ff2125979754e966c762521ba953, type: 3}
