@@ -43,5 +43,7 @@ MonoBehaviour:
   - {fileID: 1988251345, guid: 7e60ff2125979754e966c762521ba953, type: 3}
   - {fileID: 114698711, guid: 7e60ff2125979754e966c762521ba953, type: 3}
   wearableType: Outfit
+  itemName: Iron armor
   icon: {fileID: -1262996692, guid: 7e60ff2125979754e966c762521ba953, type: 3}
-  price: 0
+  buyPrice: 40
+  sellPrice: 30

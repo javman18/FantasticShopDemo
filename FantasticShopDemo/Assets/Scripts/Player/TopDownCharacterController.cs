@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TopDownCharacterController : MonoBehaviour
 {
@@ -21,9 +22,13 @@ public class TopDownCharacterController : MonoBehaviour
     [SerializeField]
     InventoryScreen inventoryUI;
 
+    public static int wallet = 50;
+    public TextMeshProUGUI walletText;
+
     Vector2 input;
     private void Update()
     {
+        walletText.text = wallet.ToString();
         input = inputSource.GetInput();
         movement.Move(input);
 

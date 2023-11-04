@@ -15,6 +15,15 @@ public class OutfitController : MonoBehaviour
     {
         equippedWearable = data;
     }
+
+    public bool EquipedOutfit(WearableData data)
+    {
+        if (equippedWearable == data)
+        {
+            return true;
+        }
+        return false;
+    }
     public void UpdateOutfitAnimation(string animationState)
     {
         timer += Time.deltaTime;

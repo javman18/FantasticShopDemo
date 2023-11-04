@@ -1,7 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "WearableData", menuName = "Wearable Data")]
 public class WearableData : ScriptableObject, IInventoryItem, ISpriteProvider
@@ -12,8 +13,11 @@ public class WearableData : ScriptableObject, IInventoryItem, ISpriteProvider
     public Sprite[] walkLeftSprites;
     public Sprite[] walkRightSprites;
     public string wearableType;
+    public string itemName;
     public Sprite icon;
-    public int price;
+    public int buyPrice;
+    public int sellPrice;
+
 
     public Sprite GetIcon()
     {
@@ -27,7 +31,17 @@ public class WearableData : ScriptableObject, IInventoryItem, ISpriteProvider
 
     public string GetItemName()
     {
+        return itemName;
+    }
+
+    public string GetItemType()
+    {
         return wearableType;
+    }
+
+    public int GetBuyPrice()
+    {
+        return buyPrice;
     }
 
     public Sprite[] GetWalkDownSprites()
@@ -48,5 +62,15 @@ public class WearableData : ScriptableObject, IInventoryItem, ISpriteProvider
     public Sprite[] GetWalkUpSprites()
     {
         return walkUpSprites;
+    }
+
+    public void Use(UnityAction action)
+    {
+        action?.Invoke();
+    }
+
+    public int GetSellPrice()
+    {
+        return sellPrice;
     }
 }

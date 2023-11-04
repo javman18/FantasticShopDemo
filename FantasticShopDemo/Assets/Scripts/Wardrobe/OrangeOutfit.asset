@@ -43,5 +43,7 @@ MonoBehaviour:
   - {fileID: -1771288641, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
   - {fileID: 1168368398, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
   wearableType: Outfit
+  itemName: Copper armor
   icon: {fileID: 71368312, guid: af46cdfb9a55b51418fd182676ba7e62, type: 3}
-  price: 0
+  buyPrice: 50
+  sellPrice: 40

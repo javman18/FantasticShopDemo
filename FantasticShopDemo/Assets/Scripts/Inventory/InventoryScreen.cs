@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+public enum InventoryType{
+    Shop,
+    Sell,
+    Player
+}
 public class InventoryScreen : MonoBehaviour, IScreen
 {
     [SerializeField]
@@ -11,6 +16,8 @@ public class InventoryScreen : MonoBehaviour, IScreen
     [SerializeField]
     private string startText;
 
+    [SerializeField]
+    InventoryType type;
     [SerializeField]
     private TextMeshProUGUI textPlaceholder;
     [SerializeField]
@@ -22,6 +29,7 @@ public class InventoryScreen : MonoBehaviour, IScreen
     [SerializeField]
     private ItemPlaceholder placeHolderPrefab;
 
+    private ItemPlaceholder storePlaceholder;
     [SerializeField]
     ScriptableObject[] starterItems;
 
@@ -30,7 +38,8 @@ public class InventoryScreen : MonoBehaviour, IScreen
 
     [SerializeField]
     private OutfitController outfitController;
-
+    [SerializeField]
+    private OutfitController hatController;
 
     public bool isVisible;
     void Awake()
@@ -77,21 +86,35 @@ public class InventoryScreen : MonoBehaviour, IScreen
         {
             if (trigger.isInTriggerZone)
             {
-                Debug.Log(targetInventory.GetInventoryItems().Count);
-                tmpPlaceholder.gameObject.SetActive(false);
-                if (myInventory.GetInventoryItems().Contains(tmpPlaceholder.wearable))
+
+                if (type == InventoryType.Shop)
                 {
-                    myInventory.RemoveItem(tmpPlaceholder.wearable);
+                    Buy(tmpPlaceholder);
                 }
-                targetInventory.AddItem(tmpPlaceholder.wearable);
+                else if(type == InventoryType.Sell)
+                {
+                    Sell(tmpPlaceholder);
+                }
+                
+
+                
             }
             
             if (!trigger.isInTriggerZone)
             {
                 if (outfitController != null)
                 {
+                    storePlaceholder = tmpPlaceholder;
+                    if (tmpPlaceholder.wearable.GetItemType() == "Outfit")
+                    {
+                        tmpPlaceholder.wearable.Use(EquipOutfit);
+                    }
+                    else if (tmpPlaceholder.wearable.GetItemType() == "Hat")
+                    {
+                        tmpPlaceholder.wearable.Use(EquipHat);
+                    }
                     
-                    outfitController.SetEquippedOutfit((WearableData)tmpPlaceholder.wearable);
+                    
                 }
                 
             }
@@ -104,9 +127,58 @@ public class InventoryScreen : MonoBehaviour, IScreen
         }
     }
 
-    public void OnItemClick()
+    public void EquipOutfit()
     {
+        outfitController.SetEquippedOutfit((WearableData)storePlaceholder.wearable);
 
+    }
+
+    public void EquipHat()
+    {
+        hatController.SetEquippedOutfit((WearableData)storePlaceholder.wearable);
+
+    }
+
+    void Buy(ItemPlaceholder item)
+    {
+        if (TopDownCharacterController.wallet >= item.wearable.GetBuyPrice())
+        {
+            TopDownCharacterController.wallet -= item.wearable.GetBuyPrice();
+            item.gameObject.SetActive(false);
+            if (myInventory.GetInventoryItems().Contains(item.wearable))
+            {
+                myInventory.RemoveItem(item.wearable);
+                
+            }
+            targetInventory.AddItem(item.wearable);
+        }
+    }
+
+    void Sell(ItemPlaceholder item)
+    {
+        TopDownCharacterController.wallet += item.wearable.GetSellPrice();
+        Debug.Log(targetInventory.GetInventoryItems().Count);
+        item.gameObject.SetActive(false);
+        if (myInventory.GetInventoryItems().Contains(item.wearable))
+        {
+            myInventory.RemoveItem(item.wearable);
+        }
+        if (storePlaceholder != null)
+        {
+            if (outfitController.EquipedOutfit((WearableData)storePlaceholder.wearable))
+            {
+                outfitController.equippedWearable = null;
+                outfitController.GetComponent<SpriteRenderer>().sprite = null;
+            }
+            else if (hatController.EquipedOutfit((WearableData)storePlaceholder.wearable))
+            {
+                hatController.equippedWearable = null;
+                hatController.GetComponent<SpriteRenderer>().sprite = null;
+            }
+        }
+        targetInventory.AddItem(item.wearable);
         
     }
+
+    
 }
