@@ -22,7 +22,7 @@ public class TopDownCharacterController : MonoBehaviour
     [SerializeField]
     InventoryScreen inventoryUI;
 
-    public static int wallet = 50;
+    public static int wallet = 100;
     public TextMeshProUGUI walletText;
 
     Vector2 input;
