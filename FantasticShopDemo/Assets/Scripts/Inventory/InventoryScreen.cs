@@ -26,17 +26,22 @@ public class InventoryScreen : MonoBehaviour, IScreen
     ScriptableObject[] starterItems;
 
     [SerializeField]
-    public ShopTrigger trigger;
+    private ShopTrigger trigger;
+
+    [SerializeField]
+    private OutfitController outfitController;
+
 
     public bool isVisible;
     void Awake()
     {
-        startText = textToDisplay;
         myInventory.OnItemChangeCallback += UpdateUiInventory;
+        startText = textToDisplay;
+       
     }
     void Start()
     {
-        
+        gameObject.SetActive(false);
         for (int i = 0; i < starterItems.Length; i++)
         {
             IInventoryItem itemToAdd = (IInventoryItem)starterItems[i];
@@ -68,18 +73,29 @@ public class InventoryScreen : MonoBehaviour, IScreen
     void UpdateUiInventory()
     {
         ItemPlaceholder tmpPlaceholder = Instantiate(placeHolderPrefab, contentHolder);
-        
         tmpPlaceholder.gameObject.GetComponent<Button>().onClick.AddListener(() =>
         {
             if (trigger.isInTriggerZone)
             {
+                Debug.Log(targetInventory.GetInventoryItems().Count);
+                tmpPlaceholder.gameObject.SetActive(false);
+                if (myInventory.GetInventoryItems().Contains(tmpPlaceholder.wearable))
+                {
+                    myInventory.RemoveItem(tmpPlaceholder.wearable);
+                }
                 targetInventory.AddItem(tmpPlaceholder.wearable);
             }
-            tmpPlaceholder.gameObject.SetActive(false);
-            if (myInventory.GetInventoryItems().Contains(tmpPlaceholder.wearable))
+            
+            if (!trigger.isInTriggerZone)
             {
-                myInventory.RemoveItem(tmpPlaceholder.wearable);
+                if (outfitController != null)
+                {
+                    
+                    outfitController.SetEquippedOutfit((WearableData)tmpPlaceholder.wearable);
+                }
+                
             }
+            
             
         });
         for (int i = 0; i < myInventory.GetInventoryItems().Count; i++)

@@ -15,6 +15,7 @@ public class InventoryController : MonoBehaviour
         inventoryItems.Add(item);
         if (OnItemChangeCallback != null)
         {
+            Debug.Log("Sellama");
             OnItemChangeCallback?.Invoke();
         }
     }
