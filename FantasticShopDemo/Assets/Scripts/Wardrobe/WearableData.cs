@@ -12,6 +12,13 @@ public class WearableData : ScriptableObject, IInventoryItem, ISpriteProvider
     public Sprite[] walkLeftSprites;
     public Sprite[] walkRightSprites;
     public string wearableType;
+    public Sprite icon;
+    public int price;
+
+    public Sprite GetIcon()
+    {
+        return icon;
+    }
 
     public Sprite[] GetIdleSprites()
     {

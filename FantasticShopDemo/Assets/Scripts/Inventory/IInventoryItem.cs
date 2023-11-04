@@ -5,6 +5,7 @@ using UnityEngine;
 public interface IInventoryItem
 {
     string GetItemName();
+    Sprite GetIcon();
 }
 
 public interface ISpriteProvider 

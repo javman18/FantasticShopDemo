@@ -11,8 +11,12 @@ public class InventoryController : MonoBehaviour
 
     public void AddItem(IInventoryItem item)
     {
+        
         inventoryItems.Add(item);
-        OnItemChangeCallback.Invoke();
+        if (OnItemChangeCallback != null)
+        {
+            OnItemChangeCallback?.Invoke();
+        }
     }
 
     public void RemoveItem(IInventoryItem item)

@@ -32,7 +32,7 @@ public class OutfitController : MonoBehaviour
 
     Sprite[] StateSprites(string animationState)
     {
-        ISpriteProvider tmpWearable = Get<ISpriteProvider>();
+        ISpriteProvider tmpWearable = GeneralUtilities.Get<ISpriteProvider>(equippedWearable);
         if (tmpWearable != null)
         {
             switch (animationState)
@@ -52,11 +52,6 @@ public class OutfitController : MonoBehaviour
         return null;
     }
 
-    public T Get<T>()
-    {
-        if (equippedWearable is T interfaceType)
-            return interfaceType;
-        return default(T);
-    }
+    
 }
 

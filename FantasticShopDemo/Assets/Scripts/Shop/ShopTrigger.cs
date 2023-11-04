@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShopTrigger : MonoBehaviour
 {
     [SerializeField]
-    private ShopMenuScreen shopScreen;
+    private InventoryScreen shopScreen;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
