@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class OutfitController : MonoBehaviour
 {
-    public WearableData wearable;
+    public WearableData equippedWearable;
 
     private int currentFrame;
     private float timer;
     public float frameRate = .1f;
     [SerializeField]
     private SpriteRenderer spriteRenderer;
-    
-    public void SetOutfit(string animationState)
+    public void SetEquippedOutfit(WearableData data)
+    {
+        equippedWearable = data;
+    }
+    public void UpdateOutfitAnimation(string animationState)
     {
         timer += Time.deltaTime;
         if (timer >= frameRate)
         {
             timer -= frameRate;
-            if (wearable != null)
+            if (equippedWearable != null)
             {
                 currentFrame = (currentFrame + 1) % StateSprites(animationState).Length;
                 spriteRenderer.sprite = StateSprites(animationState)[currentFrame];
@@ -51,7 +54,7 @@ public class OutfitController : MonoBehaviour
 
     public T Get<T>()
     {
-        if (wearable is T interfaceType)
+        if (equippedWearable is T interfaceType)
             return interfaceType;
         return default(T);
     }

@@ -28,8 +28,8 @@ public class TopDownCharacterController : MonoBehaviour
         playerAnimator.SetFloat("Vertical", input.y);
         playerAnimator.SetFloat("Speed", input.sqrMagnitude);
         SetState();
-        outfitController.SetOutfit(currentState);
-        headwearController.SetOutfit(currentState);
+        outfitController.UpdateOutfitAnimation(currentState);
+        headwearController.UpdateOutfitAnimation(currentState);
         //outfitAnimator.SetFloat("Horizontal", input.x);
         //outfitAnimator.SetFloat("Vertical", input.y);
         //outfitAnimator.SetFloat("Speed", input.sqrMagnitude);
