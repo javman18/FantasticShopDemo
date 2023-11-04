@@ -1,29 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class InventoryScreen : MonoBehaviour, IScreen
 {
     [SerializeField]
+    private string textToDisplay;
+    [SerializeField]
+    private string startText;
+
+    [SerializeField]
+    private TextMeshProUGUI textPlaceholder;
+    [SerializeField]
     private Transform contentHolder;
     [SerializeField] 
     private InventoryController myInventory;
-
+    [SerializeField]
+    private InventoryController targetInventory;
     [SerializeField]
     private ItemPlaceholder placeHolderPrefab;
 
     [SerializeField]
     ScriptableObject[] starterItems;
 
+    [SerializeField]
+    public ShopTrigger trigger;
+
+    public bool isVisible;
     void Awake()
     {
-        Debug.Log("ffff");
+        startText = textToDisplay;
         myInventory.OnItemChangeCallback += UpdateUiInventory;
     }
     void Start()
     {
-        Debug.Log("jjjj");
-
+        
         for (int i = 0; i < starterItems.Length; i++)
         {
             IInventoryItem itemToAdd = (IInventoryItem)starterItems[i];
@@ -32,31 +45,52 @@ public class InventoryScreen : MonoBehaviour, IScreen
             
         }
         
-
-    }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            myInventory.AddItem((IInventoryItem)starterItems[0]);
-        }
     }
     public void Hide()
     {
+        textToDisplay = startText;
+        isVisible = false;
         gameObject.SetActive(false);
     }
 
     public void Show()
     {
+        textPlaceholder.text = textToDisplay;
+        isVisible = true;
         gameObject.SetActive(true);
+    }
+
+    public void SetTextToDisplay(string text)
+    {
+        textToDisplay = text;
     }
 
     void UpdateUiInventory()
     {
         ItemPlaceholder tmpPlaceholder = Instantiate(placeHolderPrefab, contentHolder);
+        
+        tmpPlaceholder.gameObject.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            if (trigger.isInTriggerZone)
+            {
+                targetInventory.AddItem(tmpPlaceholder.wearable);
+            }
+            tmpPlaceholder.gameObject.SetActive(false);
+            if (myInventory.GetInventoryItems().Contains(tmpPlaceholder.wearable))
+            {
+                myInventory.RemoveItem(tmpPlaceholder.wearable);
+            }
+            
+        });
         for (int i = 0; i < myInventory.GetInventoryItems().Count; i++)
         {
             tmpPlaceholder.AddItem(myInventory.GetInventoryItems()[i]);
         }
+    }
+
+    public void OnItemClick()
+    {
+
+        
     }
 }

@@ -18,6 +18,9 @@ public class TopDownCharacterController : MonoBehaviour
     [SerializeField]
     private string currentState;
 
+    [SerializeField]
+    InventoryScreen inventoryUI;
+
     Vector2 input;
     private void Update()
     {
@@ -30,9 +33,8 @@ public class TopDownCharacterController : MonoBehaviour
         SetState();
         outfitController.UpdateOutfitAnimation(currentState);
         headwearController.UpdateOutfitAnimation(currentState);
-        //outfitAnimator.SetFloat("Horizontal", input.x);
-        //outfitAnimator.SetFloat("Vertical", input.y);
-        //outfitAnimator.SetFloat("Speed", input.sqrMagnitude);
+        ShowInventory();
+        
     }
 
     private void SetState()
@@ -58,5 +60,22 @@ public class TopDownCharacterController : MonoBehaviour
             currentState = "WalkDown";
         }
        
+    }
+
+    public void ShowInventory()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (!inventoryUI.isVisible)
+            {
+                inventoryUI.SetTextToDisplay("Wear something");
+                inventoryUI.Show();
+            }
+            else
+            {
+                inventoryUI.SetTextToDisplay("Want to sell something?");
+                inventoryUI.Hide();
+            }
+        }
     }
 }

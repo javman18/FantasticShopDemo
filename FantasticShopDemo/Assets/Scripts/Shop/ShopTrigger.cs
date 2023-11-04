@@ -7,11 +7,13 @@ public class ShopTrigger : MonoBehaviour
     [SerializeField]
     private InventoryScreen shopScreen;
 
-
+    [SerializeField]
+    public bool isInTriggerZone;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            isInTriggerZone = true;
             shopScreen.Show();
         }
     }
@@ -20,6 +22,7 @@ public class ShopTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            isInTriggerZone = false;
             shopScreen.Hide();
         }
     }

@@ -9,12 +9,6 @@ public class ItemPlaceholder : MonoBehaviour
     Image iconPlaceholder;
     public IInventoryItem wearable;
 
-
-    private void Awake()
-    {
-        
-    }
-
     public void AddItem(IInventoryItem item)
     {
         wearable = item;
@@ -23,10 +17,5 @@ public class ItemPlaceholder : MonoBehaviour
 
     }
     
-    public void OnItemClick()
-    {
-       
-        //inventoryController.AddItem(wearable);
-        gameObject.SetActive(false);
-    }
+    
 }
