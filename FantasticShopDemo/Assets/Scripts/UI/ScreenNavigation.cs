@@ -57,4 +57,9 @@ public class ScreenNavigation : MonoBehaviour
     {
         return previousScreens[previousScreens.Count - 1];
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
