@@ -1,2 +1,3 @@
 # FantasticShopDemo
-Welcome to Fantastic Shop, a captivating shopping experience that takes retail therapy to the next level! In this Unity-powered shopping simulation game, players can immerse themselves in a bustling virtual marketplace where they can explore, shop, and indulge in a variety of retail adventures.
+Welcome to Fantastic Shop, where retail therapy reaches new heights! Our Unity-powered shopping simulation game offers players the chance to dive into a vibrant virtual marketplace. Here, you can shop for and flaunt some outfits, and even sell them.
+The code was designed with the foresight that more items can be added to the shop inventory in the future.
